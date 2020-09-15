@@ -1,5 +1,10 @@
-// Linking routes to notes data source.
-var notesData = require("../notesData.js");
+const db = require("../db/db.json");
+
+const fs = require("fs");
+
+
+// // Linking routes to notes data source.
+// var notesData = require("../notesData.js");
 
 
 // Routing
@@ -7,13 +12,15 @@ var notesData = require("../notesData.js");
 module.exports = function(app) {
 
     app.get("/api/notes", function(req, res) {
-        res.json(notesData);
+        res.send(db);
     });
 
 
     app.post("/api/notes", function(req, res) {
-        notesData.push(req.body);
-        res.json(true);
+
+
+        // notesData.push(req.body);
+        // res.json(true);
     });
 
 
