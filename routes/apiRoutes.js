@@ -12,11 +12,12 @@ const { v4: uuidv4 } = require('uuid');
 
 module.exports = function(app) {
 
+    // GET
     app.get("/api/notes", function(req, res) {
         res.send(db);
     });
 
-
+    // POST
     app.post("/api/notes", function(req, res) {
 
 
@@ -37,7 +38,7 @@ module.exports = function(app) {
         // res.json(true);
     });
 
-
+    // DELETE
     app.delete("/api/notes/:id", function(req, res) {
         
         var noteID = req.params.id
