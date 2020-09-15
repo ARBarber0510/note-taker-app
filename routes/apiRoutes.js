@@ -40,16 +40,18 @@ module.exports = function(app) {
 
     app.post("/api/notes/:id", function(req, res) {
         
-        var noteID = req.param.id
+        var noteID = req.params.id
+
+
         db.forEach(object => {
             if(object.id === noteID) {
 
                 var objIndex = db.indexOf(object);
 
-                db.splice(objIndex, 1);
+                db.splice(objIndex,1);
             }
-        })
+        });
 
         res.send(db);
     });
-}
+};
