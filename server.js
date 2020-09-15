@@ -13,3 +13,9 @@ app.use(express.json());
 // Points server to routes for how to respond when users wisit or request data
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
+
+// Listener - starts the server
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
+});
