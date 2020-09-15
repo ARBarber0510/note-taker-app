@@ -9,4 +9,7 @@ var PORT = process.env.PORT || 4000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-// Build routes folder and set up route files (check activity 15)
+
+// Points server to routes for how to respond when users wisit or request data
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
