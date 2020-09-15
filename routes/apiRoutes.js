@@ -2,6 +2,7 @@ const db = require("../db/db.json");
 
 const fs = require("fs");
 
+const { v4: uuidv4 } = require('uuid');
 
 // // Linking routes to notes data source.
 // var notesData = require("../notesData.js");
@@ -19,14 +20,36 @@ module.exports = function(app) {
     app.post("/api/notes", function(req, res) {
 
 
+        var newNote = {
+            id: uuidv4(),
+
+            title: req.body.title,
+            text: req.body.text
+
+
+        };
+
+        db.push(newNote);
+
+        res.send(newNote);
+
         // notesData.push(req.body);
         // res.json(true);
     });
 
 
-    app.post("/api/delete", function(req, res) {
-        notesData.length = 0;
+    app.post("/api/notes/:id", function(req, res) {
+        
+        var noteID = req.param.id
+        db.forEach(object => {
+            if(object.id === noteID) {
 
-        res.json({ ok: true});
+                var objIndex = db.indexOf(object);
+
+                db.splice(objIndex, 1);
+            }
+        })
+
+        res.send(db);
     });
 }
