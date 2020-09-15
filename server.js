@@ -1,8 +1,15 @@
+// Express npm pkg required to run server
 var express = require("express");
 
+// Create Express server
 var app = express();
 
+
+// Set initial port to be used in the listener
 var PORT = process.env.PORT || 4000;
+
+// Express.static built-in middleware function to serve static files
+app.use(express.static('public'));
 
 
 // Set up Express app to handle data parsing
