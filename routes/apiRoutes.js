@@ -38,7 +38,7 @@ module.exports = function(app) {
     });
 
 
-    app.post("/api/notes/:id", function(req, res) {
+    app.delete("/api/notes/:id", function(req, res) {
         
         var noteID = req.params.id
 
@@ -54,4 +54,5 @@ module.exports = function(app) {
 
         res.send(db);
     });
+
 };
