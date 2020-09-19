@@ -4,9 +4,6 @@ const fs = require("fs");
 
 const { v4: uuidv4 } = require('uuid');
 
-// // Linking routes to notes data source.
-// var notesData = require("../notesData.js");
-
 
 // Routing
 
@@ -34,8 +31,6 @@ module.exports = function(app) {
 
         res.send(newNote);
 
-        // notesData.push(req.body);
-        // res.json(true);
     });
 
     // DELETE
